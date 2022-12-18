@@ -23,7 +23,7 @@ public class TicTacToe {
         System.out.println("Fresh board: ");
         System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
         System.out.println(board[4]+" | "+board[4]+" | "+board[6]);
-        System.out.println(board[7]+" | "+board[9]+" | "+board[9]);
+        System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
     }
     public void uc2_chooseXO() {
         System.out.println("Select letter X or O as your option: ");
@@ -42,6 +42,17 @@ public class TicTacToe {
     public void uc3_showBoard() {
         System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
         System.out.println(board[4]+" | "+board[4]+" | "+board[6]);
-        System.out.println(board[7]+" | "+board[9]+" | "+board[9]);
+        System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
+    }
+    public void uc4_makeAMove() {
+        for(int i = 1; i < board.length; i++) {
+            if(board[i] == ' ')
+                System.out.print(i+" ");
+        }
+        System.out.println("Positions are not occupied");
+        System.out.println("Enter the position number: ");
+        int move = sc.nextInt();
+        board[move] = userInput;
+        uc3_showBoard();
     }
 }
