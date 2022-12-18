@@ -7,6 +7,7 @@ public class TicTacToe {
     public static void main(String[] args) {
         System.out.println("Welcome to day 7 workshop program - TicTacToe game");
         TicTacToe.uc1_CreatingGame();
+        TicTacToe.uc2_chooseXO();
     }
     public static void uc1_CreatingGame() {
         char[] board = {a, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}; //size 10 char[] with empty spaces
