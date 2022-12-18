@@ -45,14 +45,7 @@ public class TicTacToe {
         System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
     }
     public void uc4_makeAMove() {
-        for(int i = 1; i < board.length; i++) {
-            if(board[i] == ' ')
-                System.out.print(i+" ");
-        }
-        System.out.println("Positions are not occupied");
         System.out.println("Enter the position number: ");
-        int move = sc.nextInt();
-        board[move] = userInput;
-        uc3_showBoard();
+        int move = sc.nextInt();board[move] = userInput;
     }
 }
