@@ -48,4 +48,11 @@ public class TicTacToe {
         System.out.println("Enter the position number: ");
         int move = sc.nextInt();board[move] = userInput;
     }
+    public void uc5_checkFreeSpace() {
+        for(int i = 1; i < board.length; i++) {
+            if(board[i] == ' ')
+                System.out.print(i+" ");
+        }
+        System.out.println("Positions are free to occupy");
+    }
 }
