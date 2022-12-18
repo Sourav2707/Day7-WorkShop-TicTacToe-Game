@@ -5,5 +5,6 @@ public class Main {
         TicTacToe obj = new TicTacToe();
         obj.welcome();
         obj.uc1_CreatingGame();
+        obj.uc2_chooseXO();
     }
 }
