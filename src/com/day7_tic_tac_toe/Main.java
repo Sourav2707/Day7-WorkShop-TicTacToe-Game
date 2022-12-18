@@ -8,7 +8,7 @@ public class Main {
         obj.uc1_CreatingGame();
         obj.uc2_chooseXO();
         System.out.println("Find the below options\n" +
-                "1. ShowBoard 2. check free space 3. MakeAMove ");
+                "1. ShowBoard 2. check free space 3. MakeAMove 4. Toss");
         int option = sc.nextInt();
         switch (option) {
             case 1:
@@ -19,6 +19,10 @@ public class Main {
                 break;
             case 3:
                 obj.uc4_makeAMove();
+                break;
+            case 4:
+                obj.uc6_toss();
+                break;
             default:
                 System.out.println("Invalid input");
                 break;

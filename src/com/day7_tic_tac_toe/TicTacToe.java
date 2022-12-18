@@ -1,4 +1,5 @@
 package com.day7_tic_tac_toe;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -6,6 +7,7 @@ public class TicTacToe {
     char userInput = ' ';
     char comInput = ' ';
     char[] board = new char[10]; //size 10 char[] with empty spaces
+    int playerToss;
     public void welcome() {
         System.out.println("Welcome to day 7 workshop program - TicTacToe game");
     }
@@ -54,5 +56,19 @@ public class TicTacToe {
                 System.out.print(i+" ");
         }
         System.out.println("Positions are free to occupy");
+    }
+    public void uc6_toss() {
+        Random rnd = new Random();
+        int toss = rnd.nextInt(0,2);
+        System.out.println("Enter 1 for head and 0 for tail in order to check who plays first");
+         playerToss = sc.nextInt();
+         if(toss == playerToss && toss == 1) {
+             System.out.println("Heads player won the toss");
+             uc4_makeAMove();
+         }
+         else if(toss == playerToss && toss == 0) {
+             System.out.println("Tails, player won the toss");
+             uc4_makeAMove();
+         }
     }
 }
