@@ -11,7 +11,7 @@ public class TicTacToe {
     }
     public void uc1_CreatingGame() {
         //ignoring 0th index
-        board[1] = ' ';
+        board[1] = ' '; //ignoring 0th index
         board[2] = ' ';
         board[3] = ' ';
         board[4] = ' ';
@@ -38,5 +38,10 @@ public class TicTacToe {
             System.out.println("Computer option is X");
         } else
             System.out.println("Invalid input only X or O is allowed");
+    }
+    public void uc3_showBoard() {
+        System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
+        System.out.println(board[4]+" | "+board[4]+" | "+board[6]);
+        System.out.println(board[7]+" | "+board[9]+" | "+board[9]);
     }
 }
