@@ -1,6 +1,4 @@
 package com.day7_tic_tac_toe;
-import java.util.Arrays;
-import java.util.Scanner;
 public class TicTacToe {
     static final char a = 0; // inorder to ignore 0th index
 
