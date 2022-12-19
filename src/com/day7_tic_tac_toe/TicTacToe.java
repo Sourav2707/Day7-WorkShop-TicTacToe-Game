@@ -224,10 +224,77 @@ public class TicTacToe {
                             uc3_showBoard();
                         }
                     }
+                    else
+                        uc9_comBlock();
                 }
             }
         }
         else
             uc8_compTurn();
+    }
+    public void uc9_comBlock() {
+        if(board[1] == userInput) {
+            if((board[2] == ' ' && board[3] == ' ') || (board[4] == ' ' && board[7] == ' ') || (board[5] == ' ' && board[9] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[2] == userInput) {
+            if((board[1] == ' ' && board[3] == ' ') || (board[5] == ' ' && board[8] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[3] == userInput) {
+            if((board[6] == ' ' && board[9] == ' ') || (board[1] == ' ' && board[2] == ' ') || (board[5] == ' ' && board[7] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[4] == userInput) {
+            if((board[5] == ' ' && board[6] == ' ') || (board[1] == ' ' && board[7] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[5] == userInput) {
+            if((board[2] == ' ' && board[8] == ' ') || (board[4] == ' ' && board[6] == ' ') || (board[3] == ' ' && board[7] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[6] == userInput) {
+            if((board[4] == ' ' && board[5] == ' ') || (board[3] == ' ' && board[9] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[7] == userInput) {
+            if((board[1] == ' ' && board[4] == ' ') || (board[8] == ' ' && board[9] == ' ') || (board[5] == ' ' && board[3] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[8] == userInput) {
+            if((board[2] == ' ' && board[5] == ' ') || (board[7] == ' ' && board[9] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else if(board[9] == userInput) {
+            if((board[3] == ' ' && board[6] == ' ') || (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
     }
 }
