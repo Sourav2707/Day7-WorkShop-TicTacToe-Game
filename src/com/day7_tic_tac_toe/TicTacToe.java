@@ -116,12 +116,19 @@ public class TicTacToe {
                     break;
             }
         }
-        if(line1 == ""+userInput+userInput+userInput)
+        if(line1 == ""+userInput+userInput+userInput) {
             System.out.println("Player is the winner");
-        else if(line2 == ""+comInput+comInput+comInput)
+            uc12_tillGameOver();
+        }
+        else if(line2 == ""+comInput+comInput+comInput) {
             System.out.println("Computer is the winner");
-        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' ' )
+            uc12_tillGameOver();
+        }
+        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' ' ) {
             System.out.println("Game tie");
+            uc12_tillGameOver();
+        }
+
     }
     public void uc8_compTurn() {
         Random rnd = new Random();
@@ -307,5 +314,9 @@ public class TicTacToe {
             System.out.println("Computer move");
             uc3_showBoard();
         }
+    }
+    public void uc12_tillGameOver() {
+       if((line1 == ""+userInput+userInput+userInput) || (line2 != ""+comInput+comInput+comInput) || (board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' '))
+            System.out.println("Game over");
     }
 }
