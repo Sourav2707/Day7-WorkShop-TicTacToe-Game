@@ -10,6 +10,7 @@ public class TicTacToe {
     int playerToss;
     int tie;
     int win = 0;
+    int comMove;
     public void welcome() {
         System.out.println("Welcome to day 7 workshop program - TicTacToe game");
     }
@@ -133,16 +134,16 @@ public class TicTacToe {
     }
     public void uc8_compTurn() {
         Random rnd = new Random();
-        int comMove = rnd.nextInt(1, 10);
+        comMove = rnd.nextInt(1, 10);
         if(board[comMove] == ' ') {
             for(int i = 1; i < board.length; i++)
             {
                 if(board[i] == comInput)  //checking the board for cominput
                 {
                     if(i == 1) {
-                        if((board[2] != userInput && board[3] != userInput) ||
-                                (board[4] != userInput && board[7] != userInput) ||
-                                (board[5] != userInput && board[9] != userInput))
+                        if((board[2] == ' ' && board[3] == ' ') ||
+                                (board[4] == ' ' && board[7] == ' ') ||
+                                (board[5] == ' ' && board[9] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -150,8 +151,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 2) {
-                        if((board[1] != userInput && board[3] != userInput) ||
-                                (board[5] != userInput && board[8] != userInput))
+                        if((board[1] == ' ' && board[3] == ' ') ||
+                                (board[5] == ' ' && board[8] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -159,9 +160,9 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 3) {
-                        if((board[1] != userInput && board[2] != userInput) ||
-                                (board[6] != userInput && board[9] != userInput) ||
-                                (board[5] != userInput && board[7] != userInput))
+                        if((board[1] == ' ' && board[2] == ' ') ||
+                                (board[6] == ' ' && board[9] == ' ') ||
+                                (board[5] == ' ' && board[7] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -169,8 +170,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 4) {
-                        if((board[1] != userInput && board[7] != userInput) ||
-                                (board[5] != userInput && board[6] != userInput))
+                        if((board[1] == ' ' && board[7] == ' ') ||
+                                (board[5] == ' ' && board[6] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -178,9 +179,9 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 5) {
-                        if((board[2] != userInput && board[8] != userInput) ||
-                                (board[4] != userInput && board[6] != userInput) ||
-                                (board[7] != userInput && board[3] != userInput))
+                        if((board[2] == ' ' && board[8] == ' ') ||
+                                (board[4] == ' ' && board[6] == ' ') ||
+                                (board[7] == ' ' && board[3] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -188,8 +189,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 6) {
-                        if((board[3] != userInput && board[9] != userInput) ||
-                                (board[4] != userInput && board[5] != userInput))
+                        if((board[3] == ' ' && board[9] == ' ') ||
+                                (board[4] == ' ' && board[5] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -197,8 +198,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 7) {
-                        if((board[1] != userInput && board[4] != userInput) ||
-                                (board[8] != userInput && board[9] != userInput) || (board[5] != userInput && board[3] != userInput))
+                        if((board[1] == ' ' && board[4] == ' ') ||
+                                (board[8] == ' ' && board[9] == ' ') || (board[5] == ' ' && board[3] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -206,8 +207,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 8) {
-                        if((board[2] != userInput && board[5] != userInput) ||
-                                (board[7] != userInput && board[9] != userInput))
+                        if((board[2] == ' ' && board[5] == ' ') ||
+                                (board[7] == ' ' && board[9] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
@@ -215,8 +216,8 @@ public class TicTacToe {
                         }
                     }
                     else if(i == 9) {
-                        if((board[3] != userInput && board[6] != userInput) ||
-                                (board[7] != userInput && board[8] != userInput) || (board[1] != userInput && board[5] != userInput))
+                        if((board[3] == ' ' && board[6] == ' ') ||
+                                (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' '))
                         {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
