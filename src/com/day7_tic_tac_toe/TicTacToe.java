@@ -8,7 +8,8 @@ public class TicTacToe {
     char comInput = ' ';
     char[] board = new char[10]; //size 10 char[] with empty spaces
     int playerToss;
-    int tie;
+    String line1 = null;
+    String line2 = null;
     int win = 0;
     int comMove;
     public void welcome() {
@@ -78,8 +79,6 @@ public class TicTacToe {
          }
     }
     public void uc7_turn() {
-        String line1 = null;
-        String line2 = null;
         for (int a = 0; a < 8; a++) {
 
             switch (a) {
@@ -115,21 +114,13 @@ public class TicTacToe {
                     line1 = ""+board[2] + board[4] + board[6];
                     line2 = ""+board[2] + board[4] + board[6];
                     break;
-                case 8:
-                    if(board[1] == ' ' || board[2] == ' ' || board[3] == ' ' ||
-                    board[4] == ' ' || board[5] == ' ' || board[6] == ' ' ||
-                    board[7] == ' ' || board[8] == ' ' || board[9] == ' ') {
-                        tie = 1;
-                    }
-                    break;
-
             }
         }
         if(line1 == ""+userInput+userInput+userInput)
             System.out.println("Player is the winner");
         else if(line2 == ""+comInput+comInput+comInput)
             System.out.println("Computer is the winner");
-        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && tie == 1 )
+        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' ' )
             System.out.println("Game tie");
     }
     public void uc8_compTurn() {
@@ -291,6 +282,17 @@ public class TicTacToe {
         }
         else if(board[9] == userInput) {
             if((board[3] == ' ' && board[6] == ' ') || (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' ')) {
+                board[comMove] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+            }
+        }
+        else
+            uc10_neitherWin();
+    }
+    public void uc10_neitherWin() {
+        if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput)) {
+            if(board[1] == ' ' || board[3] == ' ' || board[7] == ' ' || board[9] == ' ') {
                 board[comMove] = comInput;
                 System.out.println("Computer move");
                 uc3_showBoard();
