@@ -8,7 +8,7 @@ public class Main {
         obj.uc1_CreatingGame();
         obj.uc2_chooseXO();
         System.out.println("Find the below options\n" +
-                "1. ShowBoard 2. check free space 3. MakeAMove/StartGame 4. Toss");
+                "1. ShowBoard 2. check free space 3.StartGame 4. Toss");
         int option = sc.nextInt();
         switch (option) {
             case 1:

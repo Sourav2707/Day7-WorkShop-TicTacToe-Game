@@ -69,13 +69,17 @@ public class TicTacToe {
         int toss = rnd.nextInt(0,2);
         System.out.println("Enter 1 for head and 0 for tail in order to check who plays first");
          playerToss = sc.nextInt();
-         if(toss == playerToss && toss == 1) {
+         if(toss == playerToss) {
              System.out.println("Heads player won the toss");
              uc4_makeAMove();
          }
-         else if(toss == playerToss && toss == 0) {
+         else if(toss == playerToss) {
              System.out.println("Tails, player won the toss");
              uc4_makeAMove();
+         }
+         else {
+             System.out.println("Computer won the toss");
+             uc8_compTurn();
          }
     }
     public void uc7_turn() {
@@ -128,12 +132,12 @@ public class TicTacToe {
             System.out.println("Game tie");
             uc12_tillGameOver();
         }
-
+        uc8_compTurn();
     }
     public void uc8_compTurn() {
         Random rnd = new Random();
         comMove = rnd.nextInt(1, 10);
-        if(board[comMove] == ' ') {
+//        if(board[comMove] == ' ') {
             for(int i = 1; i < board.length; i++)
             {
                 if(board[i] == comInput)  //checking the board for cominput
@@ -206,8 +210,7 @@ public class TicTacToe {
                     }
                     else if(i == 8) {
                         if((board[2] == ' ' && board[5] == ' ') ||
-                                (board[7] == ' ' && board[9] == ' '))
-                        {
+                                (board[7] == ' ' && board[9] == ' ')) {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
                             uc3_showBoard();
@@ -215,20 +218,23 @@ public class TicTacToe {
                     }
                     else if(i == 9) {
                         if((board[3] == ' ' && board[6] == ' ') ||
-                                (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' '))
-                        {
+                                (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' ')) {
                             board[comMove] = comInput;
                             System.out.println("Computer move");
                             uc3_showBoard();
                         }
                     }
-                    else
-                        uc9_comBlock();
+
+                }
+                else {
+                    board[comMove] = comInput;
+                    System.out.println("Computer move");
+                    uc3_showBoard();
                 }
             }
-        }
-        else
-            uc8_compTurn();
+//        }
+//        else
+//            uc8_compTurn();
     }
     public void uc9_comBlock() {
         if(board[1] == userInput) {
@@ -318,5 +324,11 @@ public class TicTacToe {
     public void uc12_tillGameOver() {
        if((line1 == ""+userInput+userInput+userInput) || (line2 != ""+comInput+comInput+comInput) || (board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' '))
             System.out.println("Game over");
+    }
+    public void uc13_playAgain() {
+        System.out.println("Would you like to play another game ?\nif yes enter Y and if no enter N");
+        char playAgain = sc.next().charAt(0);
+//        if(playAgain == 'y' || playAgain == 'Y')
+//            Main.main();
     }
 }
