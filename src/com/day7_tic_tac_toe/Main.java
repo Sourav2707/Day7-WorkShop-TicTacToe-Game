@@ -27,5 +27,6 @@ public class Main {
                 System.out.println("Invalid input");
                 break;
         }
+        obj.uc7_turn();
     }
 }

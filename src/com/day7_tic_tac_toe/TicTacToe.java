@@ -8,6 +8,8 @@ public class TicTacToe {
     char comInput = ' ';
     char[] board = new char[10]; //size 10 char[] with empty spaces
     int playerToss;
+    int tie;
+    int win = 0;
     public void welcome() {
         System.out.println("Welcome to day 7 workshop program - TicTacToe game");
     }
@@ -49,6 +51,7 @@ public class TicTacToe {
     public void uc4_makeAMove() {
         System.out.println("Enter the position number: ");
         int move = sc.nextInt();board[move] = userInput;
+        uc3_showBoard();
     }
     public void uc5_checkFreeSpace() {
         for(int i = 1; i < board.length; i++) {
@@ -71,4 +74,62 @@ public class TicTacToe {
              uc4_makeAMove();
          }
     }
+    public void uc7_turn() {
+        String line1 = null;
+        String line2 = null;
+        for (int a = 0; a < 8; a++) {
+
+            switch (a) {
+                case 0:
+                    line1 = ""+board[0] + board[1] + board[2];
+                    line2 = ""+board[0] + board[1] + board[2];
+                    break;
+                case 1:
+                    line1 = ""+board[3] + board[4] + board[5];
+                    line2 = ""+board[3] + board[4] + board[5];
+                    break;
+                case 2:
+                    line1 = ""+board[6] + board[7] + board[8];
+                    line2 = ""+board[6] + board[7] + board[8];
+                    break;
+                case 3:
+                    line1 = ""+board[0] + board[3] + board[6];
+                    line2 = ""+board[0] + board[3] + board[6];
+                    break;
+                case 4:
+                    line1 = ""+board[1] + board[4] + board[7];
+                    line2 = ""+board[1] + board[4] + board[7];
+                    break;
+                case 5:
+                    line1 = ""+board[2] + board[5] + board[8];
+                    line2 = ""+board[2] + board[5] + board[8];
+                    break;
+                case 6:
+                    line1 = ""+board[0] + board[4] + board[8];
+                    line2 = ""+board[0] + board[4] + board[8];
+                    break;
+                case 7:
+                    line1 = ""+board[2] + board[4] + board[6];
+                    line2 = ""+board[2] + board[4] + board[6];
+                    break;
+                case 8:
+                    if(board[1] == ' ' || board[2] == ' ' || board[3] == ' ' ||
+                    board[4] == ' ' || board[5] == ' ' || board[6] == ' ' ||
+                    board[7] == ' ' || board[8] == ' ' || board[9] == ' ') {
+                        tie = 1;
+                    }
+                    break;
+
+            }
+        }
+        if(line1 == ""+userInput+userInput+userInput)
+            System.out.println("Player is the winner");
+        else if(line2 == ""+comInput+comInput+comInput)
+            System.out.println("Computer is the winner");
+        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && tie == 1 )
+            System.out.println("Game tie");
+    }
+//    public void uc8_compTurn() {
+//        if(board[0] == ' ' || )
+//    }
 }
