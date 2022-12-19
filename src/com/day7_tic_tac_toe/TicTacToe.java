@@ -298,5 +298,14 @@ public class TicTacToe {
                 uc3_showBoard();
             }
         }
+        else
+            uc11_takingCenter();
+    }
+    public void uc11_takingCenter() {
+        if(board[5] == ' ') {
+            board[comMove] = comInput;
+            System.out.println("Computer move");
+            uc3_showBoard();
+        }
     }
 }
