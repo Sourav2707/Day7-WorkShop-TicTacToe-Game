@@ -1,7 +1,7 @@
 package com.day7_tic_tac_toe;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
+    public static void game() {
         TicTacToe obj = new TicTacToe();
         Scanner sc = new Scanner(System.in);
         obj.welcome();
@@ -29,5 +29,8 @@ public class Main {
                 break;
         }
         obj.uc7_turn();
+    }
+    public static void main(String[] args) {
+        Main.game();
     }
 }
