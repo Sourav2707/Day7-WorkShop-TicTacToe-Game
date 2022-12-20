@@ -77,157 +77,168 @@ public class TicTacToe {
              uc4_makeAMove();
          }
     }
-    public void uc7_turn() {
-        String line1 = null;
-        String line2 = null;
-        for (int a = 0; a < 8; a++) {
-
-            switch (a) {
-                case 0:
-                    line1 = ""+board[0] + board[1] + board[2];
-                    line2 = ""+board[0] + board[1] + board[2];
-                    break;
-                case 1:
-                    line1 = ""+board[3] + board[4] + board[5];
-                    line2 = ""+board[3] + board[4] + board[5];
-                    break;
-                case 2:
-                    line1 = ""+board[6] + board[7] + board[8];
-                    line2 = ""+board[6] + board[7] + board[8];
-                    break;
-                case 3:
-                    line1 = ""+board[0] + board[3] + board[6];
-                    line2 = ""+board[0] + board[3] + board[6];
-                    break;
-                case 4:
-                    line1 = ""+board[1] + board[4] + board[7];
-                    line2 = ""+board[1] + board[4] + board[7];
-                    break;
-                case 5:
-                    line1 = ""+board[2] + board[5] + board[8];
-                    line2 = ""+board[2] + board[5] + board[8];
-                    break;
-                case 6:
-                    line1 = ""+board[0] + board[4] + board[8];
-                    line2 = ""+board[0] + board[4] + board[8];
-                    break;
-                case 7:
-                    line1 = ""+board[2] + board[4] + board[6];
-                    line2 = ""+board[2] + board[4] + board[6];
-                    break;
-                case 8:
-                    if(board[1] == ' ' || board[2] == ' ' || board[3] == ' ' ||
-                    board[4] == ' ' || board[5] == ' ' || board[6] == ' ' ||
-                    board[7] == ' ' || board[8] == ' ' || board[9] == ' ') {
-                        tie = 1;
-                    }
-                    break;
-
-            }
+    public void uc7_turn() //this method is to find whether player or computer is win or tie
+    {
+        // the below condition is the winning combinations 123, 456, 789, 157, 357, 147, 258, 369
+        if((board[1] == comInput && board[2] == comInput && board[3] == comInput) ||
+                (board[1] == comInput && board[4] == comInput && board[7] == comInput)||
+                (board[1] == comInput && board[5] == comInput && board[9] == comInput)||
+                (board[2] == comInput && board[5] == comInput && board[8] == comInput)||
+                (board[3] == comInput && board[6] == comInput && board[9] == comInput)||
+                (board[3] == comInput && board[5] == comInput && board[7] == comInput)||
+                (board[4] == comInput && board[5] == comInput && board[6] == comInput)||
+                (board[7] == comInput && board[8] == comInput && board[9] == comInput)) {
+            System.out.println("Computer win!");
+            win = 1;
         }
-        if(line1 == ""+userInput+userInput+userInput)
-            System.out.println("Player is the winner");
-        else if(line2 == ""+comInput+comInput+comInput)
-            System.out.println("Computer is the winner");
-        else if((line1 != ""+userInput+userInput+userInput) && (line2 != ""+comInput+comInput+comInput) && tie == 1 )
+        else if((board[1] == userInput && board[2] == userInput && board[3] == userInput) ||
+                (board[1] == userInput && board[4] == userInput && board[7] == userInput)||
+                (board[1] == userInput && board[5] == userInput && board[9] == userInput)||
+                (board[2] == userInput && board[5] == userInput && board[8] == userInput)||
+                (board[3] == userInput && board[6] == userInput && board[9] == userInput)||
+                (board[3] == userInput && board[5] == userInput && board[7] == userInput)||
+                (board[4] == userInput && board[5] == userInput && board[6] == userInput)||
+                (board[7] == userInput && board[8] == userInput && board[9] == userInput)) {
+            System.out.println("Player win!");
+            win = 1;
+        }
+        else if ((win == 1) || (board[1] != ' ' && board[2] != ' ' && board[3] != ' ' && board[4] != ' ' && board[5] != ' ' && board[6] != ' ' && board[7] != ' ' && board[8] != ' ' && board[9] != ' ')) {
             System.out.println("Game tie");
+        }
     }
+
     public void uc8_compTurn() {
-        Random rnd = new Random();
-        comMove = rnd.nextInt(1, 10);
-        if(board[comMove] == ' ') {
-            for(int i = 1; i < board.length; i++)
-            {
-                if(board[i] == comInput)  //checking the board for cominput
-                {
-                    if(i == 1) {
-                        if((board[2] == ' ' && board[3] == ' ') ||
-                                (board[4] == ' ' && board[7] == ' ') ||
-                                (board[5] == ' ' && board[9] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 2) {
-                        if((board[1] == ' ' && board[3] == ' ') ||
-                                (board[5] == ' ' && board[8] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 3) {
-                        if((board[1] == ' ' && board[2] == ' ') ||
-                                (board[6] == ' ' && board[9] == ' ') ||
-                                (board[5] == ' ' && board[7] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 4) {
-                        if((board[1] == ' ' && board[7] == ' ') ||
-                                (board[5] == ' ' && board[6] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 5) {
-                        if((board[2] == ' ' && board[8] == ' ') ||
-                                (board[4] == ' ' && board[6] == ' ') ||
-                                (board[7] == ' ' && board[3] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 6) {
-                        if((board[3] == ' ' && board[9] == ' ') ||
-                                (board[4] == ' ' && board[5] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 7) {
-                        if((board[1] == ' ' && board[4] == ' ') ||
-                                (board[8] == ' ' && board[9] == ' ') || (board[5] == ' ' && board[3] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 8) {
-                        if((board[2] == ' ' && board[5] == ' ') ||
-                                (board[7] == ' ' && board[9] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                    else if(i == 9) {
-                        if((board[3] == ' ' && board[6] == ' ') ||
-                                (board[7] == ' ' && board[8] == ' ') || (board[1] == ' ' && board[5] == ' '))
-                        {
-                            board[comMove] = comInput;
-                            System.out.println("Computer move");
-                            uc3_showBoard();
-                        }
-                    }
-                }
+        if(board[1] == ' ' && board[2] == ' ' && board[3] == ' ' && board[4] == ' ' && board[5] == ' ' &&
+                board[6] == ' ' && board[7] == ' ' && board[8] == ' ' && board[9] == ' ') //this is for initial move of the fresh board
+        {
+            Random rnd = new Random();
+            comMove = rnd.nextInt(1,10);
+            board[comMove] = comInput;
+            System.out.println("Computer move");
+            uc3_showBoard();
+            uc7_turn();
+        }
+        //if the board is not fresh
+        else {
+            //the below conditions are for winning combination moves
+            if ((board[1] == comInput && board[5] == ' ' && board[9] == ' ') ||
+                    (board[1] == comInput && board[5] == ' ' && board[9] == comInput) ||
+                    (board[2] == comInput && board[5] == ' ' && board[8] == ' ') ||
+                    (board[2] == comInput && board[5] == ' ' && board[8] == comInput) ||
+                    (board[3] == comInput && board[5] == ' ' && board[7] == ' ') ||
+                    (board[3] == comInput && board[5] == ' ' && board[7] == comInput) ||
+                    (board[4] == comInput && board[5] == ' ' && board[6] == ' ') ||
+                    (board[4] == comInput && board[5] == ' ' && board[6] == comInput) ||
+                    (board[6] == comInput && board[4] == comInput && board[5] == ' ') ||
+                    (board[7] == comInput && board[5] == ' ' && board[3] == ' ') ||
+                    (board[7] == comInput && board[5] == ' ' && board[3] == comInput) ||
+                    (board[8] == comInput && board[2] == comInput && board[5] == ' ') ||
+                    (board[9] == comInput && board[1] == comInput && board[5] == ' ')) {
+                board[5] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[2] == comInput && board[1] == ' ' && board[3] ==' ') ||
+                    (board[2] == comInput && board[1] == ' ' && board[3] == comInput) ||
+                    (board[3] == comInput && board[2] == comInput && board[1] == ' ') ||
+                    (board[4] == comInput && board[1] == ' ' && board[7] == ' ') ||
+                    (board[4] == comInput && board[1] == ' ' && board[7] == comInput) ||
+                    (board[5] == comInput && board[1] == ' ' && board[9] == ' ') ||
+                    (board[5] == comInput && board[1] == ' ' && board[9] == comInput) ||
+                    (board[7] == comInput && board[1] == ' ' && board[4] == ' ') ||
+                    (board[7] == comInput && board[1] == ' ' && board[4] == comInput) ||
+                    (board[9] == comInput && board[1] == ' ' && board[5] == ' ') ||
+                    (board[9] == comInput && board[1] == ' ' && board[5] == comInput)) {
+                board[1] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[1] == comInput && board[2] == comInput && board[3] == ' ') ||
+                    (board[2] == comInput && board[1] == comInput && board[3] == ' ') ||
+                    (board[5] == comInput && board[3] == ' ' && board[7] == comInput) ||
+                    (board[6] == comInput && board[3] == ' ' && board[9] ==' ') ||
+                    (board[6] == comInput && board[3] == ' ' && board[9] ==comInput) ||
+                    (board[7] == comInput && board[5] == comInput && board[3] == ' ') ||
+                    (board[9] == comInput && board[3] == ' ' && board[6] == ' ') ||
+                    (board[9] == comInput && board[3] == ' ' && board[6] == comInput)) {
+                board[3] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[1] == comInput && board[4] == comInput && board[7] == ' ') ||
+                    (board[3] == comInput && board[5] == comInput && board[7] == ' ') ||
+                    (board[4] == comInput && board[1] == comInput && board[7] == ' ') ||
+                    (board[5] == comInput && board[3] == comInput && board[7] == ' ') ||
+                    (board[8] == comInput && board[7] == ' ' && board[9] == ' ') ||
+                    (board[8] == comInput && board[7] == ' ' && board[9] == comInput) ||
+                    (board[9] == comInput && board[7] == ' ' && board[8] == ' ') ||
+                    (board[9] == comInput && board[7] == ' ' && board[8] == comInput)) {
+                board[7] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[1] == comInput && board[5] == comInput && board[9] == ' ') ||
+                    (board[3] == comInput && board[6] == comInput && board[9] == ' ') ||
+                    (board[5] == comInput && board[1] == comInput && board[9] == ' ') ||
+                    (board[6] == comInput && board[3] == comInput && board[9] ==' ') ||
+                    (board[7] == comInput && board[8] == comInput && board[9] == ' ') ||
+                    (board[8] == comInput && board[7] == comInput && board[9] == ' ')) {
+                board[9] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if((board[1] == comInput && board[2] == ' ' && board[3] == ' ') ||
+                    (board[1] == comInput && board[2] == ' ' && board[3] == comInput) ||
+                    (board[3] == comInput && board[2] == ' ' && board[1] == ' ') ||
+                    (board[3] == comInput && board[2] == ' ' && board[1] == comInput) ||
+                    (board[5] == comInput && board[2] == ' ' && board[8] == ' ') ||
+                    (board[5] == comInput && board[2] == ' ' && board[8] == comInput) ||
+                    (board[8] == comInput && board[2] == ' ' && board[5] == ' ') ||
+                    (board[8] == comInput && board[2] == ' ' && board[5] == comInput)) {
+                board[2] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[1] == comInput && board[4] == ' ' && board[7] == ' ') ||
+                    (board[1] == comInput && board[4] == ' ' && board[7] == comInput) ||
+                    (board[5] == comInput && board[4] == ' ' && board[6] == ' ') ||
+                    (board[5] == comInput && board[4] == ' ' && board[6] == comInput) ||
+                    (board[6] == comInput && board[4] == ' ' && board[5] == ' ') ||
+                    (board[6] == comInput && board[4] == ' ' && board[5] == comInput) ||
+                    (board[7] == comInput && board[1] == comInput && board[4] == ' ')) {
+                board[4] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[3] == comInput && board[6] == ' ' && board[9] == ' ') ||
+                    (board[3] == comInput && board[6] == ' ' && board[9] == comInput) ||
+                    (board[4] == comInput && board[5] == comInput && board[6] == ' ') ||
+                    (board[5] == comInput && board[4] == comInput && board[6] == ' ') ||
+                    (board[9] == comInput && board[3] == comInput && board[6] == ' ')) {
+                board[6] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
+            }
+            else if ((board[2] == comInput && board[5] == comInput && board[8] == ' ') ||
+                    (board[5] == comInput && board[2] == comInput && board[8] == ' ') ||
+                    (board[7] == comInput && board[8] == ' ' && board[9] == ' ') ||
+                    (board[7] == comInput && board[8] == ' ' && board[9] == comInput) ||
+                    (board[9] == comInput && board[7] == comInput && board[8] == ' ')) {
+                board[8] = comInput;
+                System.out.println("Computer move");
+                uc3_showBoard();
+                uc7_turn();
             }
         }
-        else
-            uc8_compTurn();
+        //as the computer move is done calling the player move
+        uc4_makeAMove();
     }
 }
